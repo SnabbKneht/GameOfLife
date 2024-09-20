@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu1xmlp0hfq0v"]
+
+[ext_resource type="Script" path="res://scripts/cell.gd" id="1_ffva3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g1tok"]
+size = Vector2(10, 10)
+
+[node name="Cell" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_g1tok")
+offset = Vector2(5, 5)
+script = ExtResource("1_ffva3")
