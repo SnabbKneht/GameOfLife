@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dhshwehub17pt"]
+
+[ext_resource type="Script" path="res://scripts/config.gd" id="1_mqlwv"]
+
+[resource]
+script = ExtResource("1_mqlwv")
+tick_duration = 0.2

@@ -1,0 +1,171 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnp7jdyui4yf"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_0ogek"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ogek")
+
+[node name="TitleScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -389.0
+offset_top = 100.0
+offset_right = 389.0
+offset_bottom = 275.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Game of Life"
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/CenterContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="TitleScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="ControlsButton" type="Button" parent="TitleScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "How to play?"
+
+[node name="SettingsButton" type="Button" parent="TitleScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="TitleScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+
+[node name="ControlsScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ControlsScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsScreen/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlsScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "LMB - draw
+Space - start/stop the simulation
+Esc - exit to menu"
+
+[node name="BackButton" type="Button" parent="ControlsScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -180.0
+offset_right = 78.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="SettingsScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Tick duration:"
+
+[node name="TickSlider" type="HSlider" parent="SettingsScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 0.2
+max_value = 1.0
+step = 0.1
+value = 0.2
+scrollable = false
+tick_count = 9
+
+[node name="TickValueLabel" type="Label" parent="SettingsScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0.2s"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -180.0
+offset_right = 78.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[connection signal="pressed" from="TitleScreen/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TitleScreen/CenterContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="TitleScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="TitleScreen/CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ControlsScreen/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="SettingsScreen/CenterContainer/VBoxContainer/TickSlider" to="." method="_on_tick_slider_value_changed"]
+[connection signal="pressed" from="SettingsScreen/BackButton" to="." method="_on_back_button_pressed"]
